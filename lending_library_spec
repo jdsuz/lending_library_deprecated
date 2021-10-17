@@ -1,0 +1,17 @@
+A web app called Lending Library that allows users to log the products (books, tools, etc.) they’re interested in lending and to make exchanges. The Lending Library home page should describe the site and invite users to either register or log in. Once logged in, a user should be able to create new products, add new entries/exchanges, and read and edit existing products (that belong to them).
+
+product characteristics
+	Title
+	Description
+	Date Added
+	Owner
+	Location
+	Cost (if any)
+
+
+Things Borrowed / Things Loaned / MyLibrary
+	- create an "exchange" between users 
+
+add Header/Footer to base.html
+
+git config --global user.email “jdsouza0325@gmail.com”

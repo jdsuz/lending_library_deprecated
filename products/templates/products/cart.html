@@ -1,0 +1,18 @@
+{% extends 'products/base.html' %}
+
+{% block content %}
+
+{% load cart_tag %}
+
+Total Length :: {{request.session.cart|length}}
+
+Cart Detail::
+{% for key,value in request.session.cart.items %}
+    <img src="{{value.image}}" width="120" height="80"><br>
+    {{value.text}}<br>
+    {{value.price}} <br>
+    {{value.quantity}}  <br>
+    Total {{ value.price|multiply:value.quantity }}
+{% endfor %}
+
+{% endblock content %}  

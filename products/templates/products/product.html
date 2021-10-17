@@ -1,0 +1,26 @@
+{% extends 'products/base.html' %}
+
+{% block content %}
+
+  <p>Product: {{ product }}</p>
+  <p>Type: {{ product.product_type }}</p>
+  <p>Description: {{product.description }}</p>
+  <p>Owner: {{product.owner }}</p>
+
+  <a href="{% url 'cart_add' product.id %}">Add To Cart</a>
+
+  <p>Entries:</p>
+  <ul>
+  {% for entry in entries %}
+    <li>
+      <p>{{ entry.date_added|date:'M d, Y H:i'}}</p>
+      <p>{{ entry.text|linebreaks }}</p>
+    </li>
+  {% empty %}
+    <li>
+    	There are no entries for this product yet.
+    </li>
+  {% endfor %}
+  </ul>
+
+{% endblock content %}	
