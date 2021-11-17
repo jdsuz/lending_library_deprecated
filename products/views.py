@@ -47,3 +47,37 @@ def my_products(request):
 	products = Product.objects.filter(owner=request.user).order_by('date_added')
 	context = {'products': products}
 	return render(request, 'products/my_products.html', context)
+
+def borrow_product(request, product_id):
+	"""Borrow a product."""
+	product = Product.objects.get(id=product_id)
+
+	if request.method != 'POST':
+		# Initial request; pre-fill form with the current product info.
+		form = ProductForm(instance=product)
+	else:
+		# POST data submitted; process data.
+		form = ProductForm(instance=product, data=request.POST)
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect(reverse('https://www.google.com')) 
+
+	context = {'products': product, 'form': form}
+	return render(request, 'products/borrow_product.html', context)
+
+'''
+@login_required
+def borrow(request, product_id):
+	"""Borrow a product."""
+	product = Product.objects.get(id=product_id)
+	product.borrower = request.user
+	return render(request, 'products/my_borrowed_products.html', context)
+
+
+@login_required
+def my_borrowed_products(request):
+	"""Show all of a user's borrowed products."""
+	products = Product.objects.filter(borrower=request.user).order_by('date_added')
+	context = {'products': products}
+	return render(request, 'products/my_borrowed_products.html', context)
+'''

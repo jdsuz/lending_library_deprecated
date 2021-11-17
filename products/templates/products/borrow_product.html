@@ -1,0 +1,15 @@
+<!-- {% extends "products/base.html" %} -->
+
+{% block content %}
+
+  <p><a href="{% url 'products:product' product.id %}">{{ product }}</a></p>
+
+  <p>Borrow Product:</p>
+
+  <form action="{% url 'products:borrow_product' product.id %}" method='post'>
+  	{% csrf_token %}
+  	{{ form.as_p }}
+  	<button name="submit">save changes</button>
+  </form>
+
+{% endblock content %}

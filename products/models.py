@@ -19,6 +19,7 @@ class Product(models.Model):
 
 	description = models.TextField(default='')
 	owner = models.ForeignKey(User, on_delete=models.CASCADE)
+	# borrower = models.ForeignKey(Borrower, on_delete=models.CASCADE)
 	
 	def __str__(self):
 		"""Return a string representation of the model."""
@@ -26,7 +27,7 @@ class Product(models.Model):
 
 class Entry(models.Model):
 	"""Something specific to discuss about a book/product."""
-	topic = models.ForeignKey(Product, on_delete=models.CASCADE)
+	product = models.ForeignKey(Product, on_delete=models.CASCADE)
 	text = models.TextField()
 	date_added = models.DateTimeField(auto_now_add=True)
 

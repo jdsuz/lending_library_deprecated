@@ -15,3 +15,7 @@ Things Borrowed / Things Loaned / MyLibrary
 add Header/Footer to base.html
 
 git config --global user.email “jdsouza0325@gmail.com”
+
+available = models.BooleanField(default=True) --> put in product model
+
+turn entries into comments/history

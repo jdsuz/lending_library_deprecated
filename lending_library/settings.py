@@ -38,12 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # Developer apps
+    # Third party apps
+    'bootstrap3',
 
     # My apps
     'products',
     'users',
-    'cart',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +134,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # My Settings
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = '/users/login/'
+
+# Settings for django-bootstrap3
+BOOTSTRAP3 = {
+    'include_jquery': True,
+}

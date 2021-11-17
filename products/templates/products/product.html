@@ -7,7 +7,11 @@
   <p>Description: {{product.description }}</p>
   <p>Owner: {{product.owner }}</p>
 
-  <a href="{% url 'cart_add' product.id %}">Add To Cart</a>
+  <p>
+    <a href="{% url 'products:borrow_product' product.id %}">borrow product</a>
+  </p>
+
+  <button name="submit">borrow</button>
 
   <p>Entries:</p>
   <ul>

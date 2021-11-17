@@ -1,7 +1,7 @@
 {% extends "products/base.html" %}
 
 {% block content %}
-  <p>Add a new topic:</p>
+  <p>Add a new product:</p>
   <form action="{% url 'products:new_product' %}" method='post'>
   	{% csrf_token %}
   	{{ form.as_p }}
