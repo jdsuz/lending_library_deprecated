@@ -1,19 +1,23 @@
 {% extends "products/base.html" %}
 
-{% block content %}
+{% block header %}
+  <h1>Products</h1>
+{% endblock header %}
 
-  <p>Recently Posted:</p>
+{% block content %}
 
   <ul>
   	{% for product in products %}
   	  <li>
-  	  	<a href="{% url 'products:product' product.id %}">{{ product }}</a> {{ product.date_added|date:'M d, Y H:i'}}
+        <h3>
+  	  	  <a href="{% url 'products:product' product.id %}">{{ product }}</a> {{ product.date_added|date:'M d, Y H:i'}}
+        </h3>
   	  </li>
   	{% empty %}
   	  <li>No products have been added yet.</li>
   	{% endfor %}
   </ul>
 
-  <a href="{% url 'products:new_product' %}">Add a new product:</a>
+  <h3><a href="{% url 'products:new_product' %}">Add a new product:</a></h3>
 
 {% endblock content %}

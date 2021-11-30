@@ -1,5 +1,16 @@
 {% extends "products/base.html" %}
 
+{% block header %}
+  <div class='jumbotron'>
+    <h1>Browse available books.</h1>
+  </div>
+{% endblock header %}
+
 {% block content %}
-  <p>Lending Library helps you find local lenders willing to let you borrow books you'd like to read.</p>
+  <h2>
+    <a href="{% url 'users:register' %}">Register an account</a> to advertise books you have available to lend.
+  </h2>
+  <h2>
+    Lending Library helps you find local lenders willing to let you borrow books you'd like to read.
+  </h2>
 {% endblock content %}

@@ -1,11 +1,21 @@
 {% extends "products/base.html" %}
+{% load bootstrap3 %}
+
+{% block header %}
+  <h2>Add a new product:</h2>
+{% endblock header %}
 
 {% block content %}
-  <p>Add a new product:</p>
-  <form action="{% url 'products:new_product' %}" method='post'>
+
+  <form action="{% url 'products:new_product' %}" method='post' class="form">
+
   	{% csrf_token %}
-  	{{ form.as_p }}
-  	<button name="submit">add product</button>
+    {% bootstrap_form form %}
+
+    {% buttons %}
+      <button name="submit" class="btn btn-primary">add product</button>
+    {% endbuttons %}
+
   </form>
 
 {% endblock content %}

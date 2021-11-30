@@ -1,5 +1,9 @@
 {% extends 'products/base.html' %}
 
+{% block header %}
+  <h2>{{ product }}</h2>
+{% endblock header %}
+
 {% block content %}
 
   <p>Product: {{ product }}</p>
@@ -11,20 +15,25 @@
     <a href="{% url 'products:borrow_product' product.id %}">borrow product</a>
   </p>
 
-  <button name="submit">borrow</button>
+  <!-- button name="submit">borrow</button -->
 
-  <p>Entries:</p>
-  <ul>
   {% for entry in entries %}
-    <li>
-      <p>{{ entry.date_added|date:'M d, Y H:i'}}</p>
-      <p>{{ entry.text|linebreaks }}</p>
-    </li>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3>
+          {{ entry.date_added|date:'M d, Y H:i'}}
+          <small>
+            <a href="https://www.google.com">edit entry</a>
+          </small>
+        </h3>
+      </div>
+      <div class="panel-body">
+        {{ entry.text|linebreaks }}
+      </div>
+    </div> <!-- panel --> 
+
   {% empty %}
-    <li>
     	There are no entries for this product yet.
-    </li>
   {% endfor %}
-  </ul>
 
 {% endblock content %}	

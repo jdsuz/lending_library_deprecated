@@ -30,7 +30,10 @@
 
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="{% url 'products:products' %}">Products</a><li>
+            <li><a href="{% url 'products:products' %}">Products</a></li>
+            <li><a href="{% url 'products:my_products' %}">MyLibrary</a></li>
+            <li><a href="https://www.google.com">Things Borrowed</a></li>
+            <li><a href="https://www.google.com">Things Loaned</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
@@ -38,8 +41,8 @@
               <li><a>Hello, {{user.username }}.</a></li>
               <li><a href="{% url 'users:logout' %}">log out</a></li>
             {% else %}
-              <li><a href="{% url 'user:register' %}">register</a></li>
-              <li><a href="{% url 'user:login' %}">log in</a></li>
+              <li><a href="{% url 'users:register' %}">register</a></li>
+              <li><a href="{% url 'users:login' %}">log in</a></li>
             {% endif %}
           </ul>
         </div><!--/.nsv-collapse -->
@@ -47,23 +50,19 @@
     </div>
   </nav>
 
+  <div class="container">
 
-<p>
-  <a href="{% url 'products:index' %}">Lending Library</a> /
-  <a href="{% url 'products:products' %}">Products</a> /
-  <a href="{% url 'products:my_products' %}">MyLibrary</a> /
-  Things Borrowed /
-  Things Loaned /
-  {% if user.is_authenticated %}
-    Hello, {{ user.username }}.
-    <a href="{% url 'users:logout' %}">log out</a>
-  {% else %}
-    <a href="{% url 'users:register' %}">register</a> -
-    <a href="{% url 'users:login' %}">log in</a>
-  {% endif %}
-</p>
+    <div class="page-header">
+      {% block header %}{% endblock header %}
+    </div>
+    <div>
+      {% block content %}{% endblock content %}
+    </div>
 
-{% block content %}{% endblock content %} 
+  </div> <!-- /container -->
+
+  </body>
+</html>
 
 <footer>
   <p><a href="https://www.linkedin.com/in/josh-d-souza-915b2543" target="_blank" rel="noopener noreferrer">Creator: Josh D'Souza</a></p>
