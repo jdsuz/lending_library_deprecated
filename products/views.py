@@ -60,7 +60,7 @@ def borrow_product(request, product_id):
 		form = ProductForm(instance=product, data=request.POST)
 		if form.is_valid():
 			form.save()
-			return HttpResponseRedirect(reverse('https://www.google.com')) 
+			return HttpResponseRedirect(reverse('products:product', args=[product.id])) 
 
-	context = {'products': product, 'form': form}
+	context = {'product': product, 'form': form}
 	return render(request, 'products/borrow_product.html', context)
