@@ -1,4 +1,5 @@
 {% extends 'products/base.html' %}
+{% load bootstrap3 %}
 
 {% block header %}
   <h2>{{ product }}</h2>
@@ -11,11 +12,13 @@
   <p>Description: {{product.description }}</p>
   <p>Owner: {{product.owner }}</p>
 
-  <p>
-    <a href="{% url 'products:borrow_product' product.id %}">borrow product</a>
-  </p>
+  {% buttons %}
+    <button name="submit" class="btn btn-primary"><a href="{% url 'products:borrow_product' product.id %}">borrow product</a></button>
+  {% endbuttons %}
 
-  <!-- button name="submit">borrow</button -->
+  <!--p>
+    <a href="{% url 'products:borrow_product' product.id %}">borrow product</a>
+  </p-->
 
   {% for entry in entries %}
     <div class="panel panel-default">
