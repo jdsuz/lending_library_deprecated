@@ -32,8 +32,8 @@
           <ul class="nav navbar-nav">
             <li><a href="{% url 'products:products' %}">Products</a></li>
             <li><a href="{% url 'products:my_products' %}">MyLibrary</a></li>
-            <li><a href="https://www.google.com">Things Borrowed</a></li>
-            <li><a href="https://www.google.com">Things Loaned</a></li>
+            <li><a href="{% url 'products:index' %}">Things Borrowed</a></li>
+            <li><a href="{% url 'products:index' %}">Things Loaned</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
